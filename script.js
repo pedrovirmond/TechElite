@@ -340,6 +340,12 @@ document.querySelectorAll("[data-nav]").forEach((button) => {
 
 goCompare.addEventListener("click", () => showScreen("compare"));
 
+document.querySelector(".compare-actions").addEventListener("click", (event) => {
+  const addButton = event.target.closest("[data-add]");
+  if (!addButton) return;
+  addToCart(addButton.dataset.add);
+});
+
 document.querySelector("#detailsAddCart").addEventListener("click", () => {
   addToCart(state.currentProduct.id);
 });
