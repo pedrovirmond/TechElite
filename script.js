@@ -340,10 +340,11 @@ document.querySelectorAll("[data-nav]").forEach((button) => {
 
 goCompare.addEventListener("click", () => showScreen("compare"));
 
-document.querySelector(".compare-actions").addEventListener("click", (event) => {
-  const addButton = event.target.closest("[data-add]");
-  if (!addButton) return;
-  addToCart(addButton.dataset.add);
+["#compareAddFirst", "#compareAddSecond"].forEach((selector) => {
+  document.querySelector(selector).addEventListener("click", (event) => {
+    const productId = event.currentTarget.dataset.add;
+    if (productId) addToCart(productId);
+  });
 });
 
 document.querySelector("#detailsAddCart").addEventListener("click", () => {
