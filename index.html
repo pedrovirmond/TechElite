@@ -3,317 +3,161 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lista de Produtos</title>
+    <title>TechElite</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="Lista-de-Produtos-iPhone-17" data-name="Lista de Produtos (iPhone 17)">
-      <header class="Header-TopAppBar" data-name="Header - TopAppBar">
-        <div class="Container" data-name="Container">
-          <button class="Button header-button" data-name="Button" type="button">
-            <img src="assets/header-menu.svg" alt="Menu" />
+    <main class="app-shell" aria-live="polite">
+      <section class="phone-screen active" id="screen-shop" data-screen="shop" aria-labelledby="shop-title">
+        <header class="topbar">
+          <button class="icon-button" type="button" aria-label="Abrir menu">
+            <img src="assets/header-menu.svg" alt="" />
           </button>
-          <div class="Heading-1" data-name="Heading 1">
-            <span class="Text" data-name="Text">TechElite</span>
-          </div>
+          <h1 id="shop-title">TechElite</h1>
+          <button class="icon-button" type="button" aria-label="Buscar produtos">
+            <img src="assets/header-action.svg" alt="" />
+          </button>
+        </header>
+
+        <nav class="chip-row" aria-label="Filtrar produtos">
+          <button class="chip active" type="button" data-filter="all">All Products</button>
+          <button class="chip" type="button" data-filter="laptops">Laptops</button>
+          <button class="chip" type="button" data-filter="smartphones">Smartphones</button>
+          <button class="chip" type="button" data-filter="audio">Audio</button>
+          <button class="chip" type="button" data-filter="displays">Displays</button>
+          <button class="chip" type="button" data-filter="components">Components</button>
+        </nav>
+
+        <div class="product-grid" id="productGrid" aria-label="Lista de produtos"></div>
+
+        <div class="compare-dock" id="compareDock" hidden>
+          <span id="compareCounter">0 produtos selecionados</span>
+          <button type="button" id="goCompare">Compare</button>
         </div>
-        <button class="Button header-button" data-name="Button" type="button">
-          <img src="assets/header-action.svg" alt="Ações" />
-        </button>
-      </header>
 
-      <main class="Main" data-name="Main">
-        <section class="Section-Search-Filter" data-name="Section - Search & Filter Bar - Sticky for accessibility on taller screens">
-          <div class="Container" data-name="Container">
-            <button class="Button pill active" data-name="Button" type="button">
-              <span class="Text" data-name="Text">All Products</span>
-            </button>
-            <button class="Button pill" data-name="Button" type="button">
-              <span class="Text" data-name="Text">Laptops</span>
-            </button>
-            <button class="Button pill" data-name="Button" type="button">
-              <span class="Text" data-name="Text">Smartphones</span>
-            </button>
-            <button class="Button pill" data-name="Button" type="button">
-              <span class="Text" data-name="Text">Audio</span>
-            </button>
-            <button class="Button pill" data-name="Button" type="button">
-              <span class="Text" data-name="Text">Displays</span>
-            </button>
-          </div>
+        <footer class="bottom-nav" aria-label="Navegacao principal">
+          <button class="active" type="button" data-nav="shop"><img src="assets/nav-shop.svg" alt="" />Shop</button>
+          <button type="button" data-nav="compare"><img src="assets/nav-compare.svg" alt="" />Compare</button>
+          <button type="button" data-nav="cart"><img src="assets/nav-cart.svg" alt="" />Cart <span class="cart-badge" id="cartBadge">0</span></button>
+          <button type="button" disabled><img src="assets/nav-orders.svg" alt="" />Orders</button>
+          <button type="button" disabled><img src="assets/nav-profile.svg" alt="" />Profile</button>
+        </footer>
+      </section>
+
+      <section class="phone-screen" id="screen-details" data-screen="details" aria-labelledby="detailsTitle">
+        <header class="topbar">
+          <button class="icon-button" type="button" data-nav="shop" aria-label="Voltar para produtos">←</button>
+          <h1>TechElite</h1>
+          <button class="icon-button" type="button" aria-label="Buscar produtos">
+            <img src="assets/header-action.svg" alt="" />
+          </button>
+        </header>
+
+        <p class="breadcrumb" id="detailsBreadcrumb">Shop &gt; Produto</p>
+        <img class="detail-image" id="detailsImage" src="assets/product1.png" alt="" />
+        <span class="tag soft" id="detailsTag">New Arrival</span>
+        <h2 id="detailsTitle">Produto</h2>
+        <div class="rating" id="detailsRating"></div>
+        <p class="detail-price" id="detailsPrice">$0</p>
+        <p class="installments" id="detailsInstallments">Or $0/mo for 12 months</p>
+
+        <div class="pill-row" id="detailsSpecs"></div>
+
+        <section class="description">
+          <h3>Precision Engineering</h3>
+          <p id="detailsDescription"></p>
         </section>
 
-        <section class="Section-Product-Grid" data-name="Section - Product Grid - 2 columns optimized for taller display">
-          <article class="Product-Card" data-name="Product Card 1">
-            <div class="Margin" data-name="Margin">
-              <div class="Background" data-name="Background">
-                <img class="ProductImage" src="assets/product1.png" alt="EliteBook Pro X1 Carbon Edition" />
-                <div class="Label" data-name="Label">
-                  <span class="Text" data-name="Text">Compare</span>
-                </div>
-              </div>
-              <div class="Container rating-row" data-name="Container">
-                <img class="Icon" src="assets/rating-star-1.svg" alt="" />
-                <img class="Icon" src="assets/rating-star-2.svg" alt="" />
-                <img class="Icon" src="assets/rating-star-3.svg" alt="" />
-                <img class="Icon" src="assets/rating-star-4.svg" alt="" />
-                <img class="Icon" src="assets/rating-star-5.svg" alt="" />
-                <span class="Text count" data-name="Text">(124)</span>
-              </div>
-            </div>
-            <div class="Heading-3" data-name="Heading 3">
-              <span class="Text" data-name="EliteBook Pro X1 Carbon Edition">EliteBook Pro X1<br />Carbon Edition</span>
-            </div>
-            <div class="Container tags" data-name="Container">
-              <div class="Background tag" data-name="Background">
-                <span class="Text" data-name="Text">OLED</span>
-              </div>
-              <div class="Background tag" data-name="Background">
-                <span class="Text" data-name="Text">32GB RAM</span>
-              </div>
-            </div>
-            <div class="Margin price-row" data-name="Margin">
-              <div class="Container" data-name="Container">
-                <span class="Text price" data-name="Text">$1,899</span>
-              </div>
-              <button class="Button add-button" data-name="Button" type="button">
-                <img src="assets/add-button-1.svg" alt="Adicionar" />
-              </button>
-            </div>
-          </article>
+        <button class="primary-action" type="button" id="detailsAddCart">Add to Cart</button>
+        <button class="secondary-action" type="button" id="detailsCompare">Compare with others</button>
 
-          <article class="Product-Card" data-name="Product Card 2">
-            <div class="Margin" data-name="Margin">
-              <div class="Background" data-name="Background">
-                <img class="ProductImage" src="assets/product2.png" alt="Nexus Ultra 5G Smartphone" />
-                <div class="Label" data-name="Label">
-                  <span class="Text" data-name="Text">Compare</span>
-                </div>
-              </div>
-              <div class="Container rating-row" data-name="Container">
-                <img class="Icon" src="assets/rating-star-1.svg" alt="" />
-                <img class="Icon" src="assets/rating-star-2.svg" alt="" />
-                <img class="Icon" src="assets/rating-star-3.svg" alt="" />
-                <img class="Icon" src="assets/rating-star-4.svg" alt="" />
-                <img class="Icon" src="assets/rating-star-5.svg" alt="" />
-                <span class="Text count" data-name="Text">(89)</span>
-              </div>
-            </div>
-            <div class="Heading-3" data-name="Heading 3">
-              <span class="Text" data-name="Nexus Ultra 5G Smartphone">Nexus Ultra 5G<br />Smartphone</span>
-            </div>
-            <div class="Container tags" data-name="Container">
-              <div class="Background tag" data-name="Background">
-                <span class="Text" data-name="Text">5G</span>
-              </div>
-              <div class="Background tag" data-name="Background">
-                <span class="Text" data-name="Text">256GB</span>
-              </div>
-            </div>
-            <div class="Margin price-row" data-name="Margin">
-              <div class="Container" data-name="Container">
-                <span class="Text price" data-name="Text">$999</span>
-              </div>
-              <button class="Button add-button" data-name="Button" type="button">
-                <img src="assets/add-button-1.svg" alt="Adicionar" />
-              </button>
-            </div>
-          </article>
+        <footer class="bottom-nav" aria-label="Navegacao principal">
+          <button type="button" data-nav="shop"><img src="assets/nav-shop.svg" alt="" />Shop</button>
+          <button type="button" data-nav="compare"><img src="assets/nav-compare.svg" alt="" />Compare</button>
+          <button type="button" data-nav="cart"><img src="assets/nav-cart.svg" alt="" />Cart <span class="cart-badge cart-badge-copy">0</span></button>
+          <button type="button" disabled><img src="assets/nav-orders.svg" alt="" />Orders</button>
+          <button type="button" disabled><img src="assets/nav-profile.svg" alt="" />Profile</button>
+        </footer>
+      </section>
 
-          <article class="Product-Card" data-name="Product Card 3">
-            <div class="Margin" data-name="Margin">
-              <div class="Background" data-name="Background">
-                <img class="ProductImage" src="assets/product3.png" alt="SonicWave Studio Max" />
-                <div class="Label" data-name="Label">
-                  <span class="Text" data-name="Text">Compare</span>
-                </div>
-              </div>
-              <div class="Container rating-row" data-name="Container">
-                <img class="Icon" src="assets/rating-star-1.svg" alt="" />
-                <img class="Icon" src="assets/rating-star-2.svg" alt="" />
-                <img class="Icon" src="assets/rating-star-3.svg" alt="" />
-                <img class="Icon" src="assets/rating-star-4.svg" alt="" />
-                <img class="Icon" src="assets/rating-star-5.svg" alt="" />
-                <span class="Text count" data-name="Text">(210)</span>
-              </div>
-            </div>
-            <div class="Heading-3" data-name="Heading 3">
-              <span class="Text" data-name="SonicWave Studio Max">SonicWave<br />Studio Max</span>
-            </div>
-            <div class="Container tags" data-name="Container">
-              <div class="Background tag" data-name="Background">
-                <span class="Text" data-name="Text">ANC</span>
-              </div>
-              <div class="Background tag" data-name="Background">
-                <span class="Text" data-name="Text">BT 5.3</span>
-              </div>
-            </div>
-            <div class="Margin price-row" data-name="Margin">
-              <div class="Container" data-name="Container">
-                <span class="Text price" data-name="Text">$349</span>
-              </div>
-              <button class="Button add-button" data-name="Button" type="button">
-                <img src="assets/add-button-1.svg" alt="Adicionar" />
-              </button>
-            </div>
-          </article>
+      <section class="phone-screen" id="screen-compare" data-screen="compare" aria-labelledby="compareTitle">
+        <header class="topbar">
+          <button class="icon-button" type="button" data-nav="shop" aria-label="Voltar para produtos">←</button>
+          <h1>TechElite</h1>
+          <button class="icon-button" type="button" aria-label="Buscar produtos">
+            <img src="assets/header-action.svg" alt="" />
+          </button>
+        </header>
 
-          <article class="Product-Card" data-name="Product Card 4">
-            <div class="Margin" data-name="Margin">
-              <div class="Background" data-name="Background">
-                <img class="ProductImage" src="assets/product4.png" alt="ProDisplay 4K Ultra-Wide" />
-                <div class="Label" data-name="Label">
-                  <span class="Text" data-name="Text">Compare</span>
-                </div>
-              </div>
-              <div class="Container rating-row" data-name="Container">
-                <img class="Icon" src="assets/rating-star-1.svg" alt="" />
-                <img class="Icon" src="assets/rating-star-2.svg" alt="" />
-                <img class="Icon" src="assets/rating-star-3.svg" alt="" />
-                <img class="Icon" src="assets/rating-star-4.svg" alt="" />
-                <img class="Icon" src="assets/rating-star-5.svg" alt="" />
-                <span class="Text count" data-name="Text">(56)</span>
-              </div>
-            </div>
-            <div class="Heading-3" data-name="Heading 3">
-              <span class="Text" data-name="ProDisplay 4K Ultra-Wide">ProDisplay 4K<br />Ultra-Wide</span>
-            </div>
-            <div class="Container tags" data-name="Container">
-              <div class="Background tag" data-name="Background">
-                <span class="Text" data-name="Text">4K IPS</span>
-              </div>
-              <div class="Background tag" data-name="Background">
-                <span class="Text" data-name="Text">HDR10</span>
-              </div>
-            </div>
-            <div class="Margin price-row" data-name="Margin">
-              <div class="Container" data-name="Container">
-                <span class="Text price" data-name="Text">$749</span>
-              </div>
-              <button class="Button add-button" data-name="Button" type="button">
-                <img src="assets/add-button-1.svg" alt="Adicionar" />
-              </button>
-            </div>
-          </article>
+        <h2 id="compareTitle">Compare Products</h2>
+        <p class="lead">Escolha dois produtos na tela inicial para comparar especificacoes lado a lado.</p>
+        <div class="compare-items" id="compareItems"></div>
+        <div class="spec-grid" id="specGrid" aria-label="Tabela comparativa"></div>
+        <div class="compare-actions">
+          <button class="primary-action dark" type="button" id="compareAddFirst">Add to Cart</button>
+          <button class="primary-action green" type="button" id="compareAddSecond">Add to Cart</button>
+        </div>
 
-          <article class="Product-Card" data-name="Product Card 5">
-            <div class="Margin" data-name="Margin">
-              <div class="Background" data-name="Background">
-                <img class="ProductImage" src="assets/product5.png" alt="TabPro 12 Creator Edition" />
-                <div class="Label" data-name="Label">
-                  <span class="Text" data-name="Text">Compare</span>
-                </div>
-              </div>
-              <div class="Container rating-row" data-name="Container">
-                <img class="Icon" src="assets/rating-star-1.svg" alt="" />
-                <img class="Icon" src="assets/rating-star-2.svg" alt="" />
-                <img class="Icon" src="assets/rating-star-3.svg" alt="" />
-                <img class="Icon" src="assets/rating-star-4.svg" alt="" />
-                <img class="Icon" src="assets/rating-star-5.svg" alt="" />
-                <span class="Text count" data-name="Text">(92)</span>
-              </div>
-            </div>
-            <div class="Heading-3" data-name="Heading 3">
-              <span class="Text" data-name="TabPro 12 Creator Edition">TabPro 12 Creator<br />Edition</span>
-            </div>
-            <div class="Container tags" data-name="Container">
-              <div class="Background tag" data-name="Background">
-                <span class="Text" data-name="Text">120Hz</span>
-              </div>
-              <div class="Background tag" data-name="Background">
-                <span class="Text" data-name="Text">Stylus</span>
-              </div>
-            </div>
-            <div class="Margin price-row" data-name="Margin">
-              <div class="Container" data-name="Container">
-                <span class="Text price" data-name="Text">$1,099</span>
-              </div>
-              <button class="Button add-button" data-name="Button" type="button">
-                <img src="assets/add-button-1.svg" alt="Adicionar" />
-              </button>
-            </div>
-          </article>
+        <footer class="bottom-nav" aria-label="Navegacao principal">
+          <button type="button" data-nav="shop"><img src="assets/nav-shop.svg" alt="" />Shop</button>
+          <button class="active" type="button" data-nav="compare"><img src="assets/nav-compare.svg" alt="" />Compare</button>
+          <button type="button" data-nav="cart"><img src="assets/nav-cart.svg" alt="" />Cart <span class="cart-badge cart-badge-copy">0</span></button>
+          <button type="button" disabled><img src="assets/nav-orders.svg" alt="" />Orders</button>
+          <button type="button" disabled><img src="assets/nav-profile.svg" alt="" />Profile</button>
+        </footer>
+      </section>
 
-          <article class="Product-Card" data-name="Product Card 6">
-            <div class="Margin" data-name="Margin">
-              <div class="Background" data-name="Background">
-                <img class="ProductImage" src="assets/product6.png" alt="CoreMaster X- 900 GPU" />
-                <div class="Label" data-name="Label">
-                  <span class="Text" data-name="Text">Compare</span>
-                </div>
-              </div>
-              <div class="Container rating-row" data-name="Container">
-                <img class="Icon" src="assets/rating-star-1.svg" alt="" />
-                <img class="Icon" src="assets/rating-star-2.svg" alt="" />
-                <img class="Icon" src="assets/rating-star-3.svg" alt="" />
-                <img class="Icon" src="assets/rating-star-4.svg" alt="" />
-                <img class="Icon" src="assets/rating-star-5.svg" alt="" />
-                <span class="Text count" data-name="Text">(45)</span>
-              </div>
-            </div>
-            <div class="Heading-3" data-name="Heading 3">
-              <span class="Text" data-name="CoreMaster X- 900 GPU">CoreMaster X-<br />900 GPU</span>
-            </div>
-            <div class="Container tags" data-name="Container">
-              <div class="Background tag" data-name="Background">
-                <span class="Text" data-name="Text">24GB VRAM</span>
-              </div>
-            </div>
-            <div class="Margin price-row" data-name="Margin">
-              <div class="Container" data-name="Container">
-                <span class="Text price" data-name="Text">$1,599</span>
-              </div>
-              <button class="Button add-button" data-name="Button" type="button">
-                <img src="assets/add-button-1.svg" alt="Adicionar" />
-              </button>
-            </div>
-          </article>
+      <section class="phone-screen" id="screen-cart" data-screen="cart" aria-labelledby="cartTitle">
+        <header class="topbar centered">
+          <button class="icon-button" type="button" data-nav="shop" aria-label="Voltar para produtos">←</button>
+          <h1>TechElite</h1>
+          <button class="icon-button" type="button" aria-label="Ajuda">?</button>
+        </header>
+
+        <section class="cart-list" aria-labelledby="cartTitle">
+          <h2 id="cartTitle">Cart</h2>
+          <div id="cartItems" class="cart-items"></div>
         </section>
-      </main>
 
-      <nav class="BottomNavBar" data-name="BottomNavBar">
-        <div class="BottomNavBar-shadow" data-name="BottomNavBar:shadow"></div>
-        <button class="Link active" data-name="Link:css-transform" type="button">
-          <div class="Link-icon" data-name="Link">
-            <img src="assets/nav-shop.svg" alt="Shop" />
-          </div>
-          <div class="Container" data-name="Container">
-            <span class="Text" data-name="Text">Shop</span>
-          </div>
-        </button>
-        <button class="Link" data-name="Link:css-transform" type="button">
-          <div class="Link-icon" data-name="Link">
-            <img src="assets/nav-compare.svg" alt="Compare" />
-          </div>
-          <div class="Container" data-name="Container">
-            <span class="Text" data-name="Text">Compare</span>
-          </div>
-        </button>
-        <button class="Link" data-name="Link:css-transform" type="button">
-          <div class="Link-icon" data-name="Link">
-            <img src="assets/nav-cart.svg" alt="Cart" />
-          </div>
-          <div class="Container" data-name="Container">
-            <span class="Text" data-name="Text">Cart</span>
-          </div>
-        </button>
-        <button class="Link" data-name="Link:css-transform" type="button">
-          <div class="Link-icon" data-name="Link">
-            <img src="assets/nav-orders.svg" alt="Orders" />
-          </div>
-          <div class="Container" data-name="Container">
-            <span class="Text" data-name="Text">Orders</span>
-          </div>
-        </button>
-        <button class="Link" data-name="Link:css-transform" type="button">
-          <div class="Link-icon" data-name="Link">
-            <img src="assets/nav-profile.svg" alt="Profile" />
-          </div>
-          <div class="Container" data-name="Container">
-            <span class="Text" data-name="Text">Profile</span>
-          </div>
-        </button>
-      </nav>
-    </div>
+        <p class="secure">Ambiente de Pagamento Seguro</p>
+
+        <form class="payment-form">
+          <label class="payment-option active">
+            <input type="radio" name="payment" value="pix" checked />
+            <span>Pagar com Pix</span>
+            <strong>10% OFF</strong>
+            <div class="pix-box">
+              <div class="qr-code" aria-label="QR Code Pix"></div>
+              <p>Liberacao imediata do pedido apos o pagamento.</p>
+              <button type="button" id="copyPix">Copiar chave Pix</button>
+            </div>
+          </label>
+
+          <label class="payment-option">
+            <input type="radio" name="payment" value="credit" />
+            <span>Cartao de Credito</span>
+            <small>ate 12x sem juros</small>
+          </label>
+        </form>
+
+        <dl class="totals">
+          <div><dt>Subtotal</dt><dd id="subtotalValue">$0</dd></div>
+          <div class="discount"><dt>Desconto Pix (10%)</dt><dd id="discountValue">-$0</dd></div>
+          <div class="total"><dt>Total</dt><dd id="totalValue">$0</dd></div>
+        </dl>
+
+        <button class="primary-action checkout" type="button" id="finishPayment">Finalizar pagamento</button>
+
+        <section class="success-panel" id="successPanel" hidden aria-labelledby="successTitle">
+          <div class="success-check" aria-hidden="true">✓</div>
+          <h2 id="successTitle">Compra concluida</h2>
+          <p>Seu pedido foi confirmado com sucesso.</p>
+          <button class="primary-action" type="button" id="continueShopping">Continuar comprando</button>
+        </section>
+      </section>
+    </main>
+
+    <div class="toast" role="status" aria-live="polite" id="toast"></div>
+    <script src="script.js"></script>
   </body>
 </html>
